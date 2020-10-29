@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse,Http404
-from django.contrib.auth.decoraters import login
+from django.shortcuts import render,redirect
+from django.http import HttpResponse,Http404,HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def index(request):
