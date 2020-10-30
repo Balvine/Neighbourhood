@@ -4,3 +4,38 @@
     <a href="/" class="brand-logo center">AMANI COURT</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
+        <li><a href="{% url 'companies' %}">Companies Around</a></li>
+        <li> <a href="#contactsmodal" class="modal-trigger">Emergency Contacts</a> </li>
+      </ul>
+      <a href="{% url 'logout' %}" class="right"><i class="small material-icons">exit_to_app</i></a>
+      <a class="right" href="{% url 'edit_profile' user.username %}" style="margin: 10px;"><img src="{% static 'images/user.png' %}" alt="" height="40" width="40"></a>
+      <ul class="">
+          <li><form class="" action="{% url 'search' %}">
+            <div id="custom-search-input">
+                  <div class="input-group col-md-12 ui-widget">
+                      <input id="search" type="text" class="form-control input-lg" placeholder="Search company" name="search" />
+                  </div>
+              </div>
+        </form></li>
+
+      </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="{% url 'companies' %}">companies</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+ </ul>
+
+ <!-- Modal Structure -->
+   <div id="contactsmodal" class="modal">
+     <div class="modal-content">
+       <h4>Hotline Emergency Contacts</h4>
+       <p>Police: 999 / +254 203 414 11 <br>Ambulance: 5674 / 020-2222181 <br>Fire Brigade: 2222181</p>
+     </div>
+     <div class="modal-footer">
+       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+     </div>
+   </div>
