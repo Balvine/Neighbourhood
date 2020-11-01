@@ -21,11 +21,11 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('',include('hood.urls')),
-    # path('accounts/register/',
-    #     RegistrationView.as_view(success_url='/accounts/login'),
-    #     name='django_registration_register'),
+    path('',include('hood.urls')),
+    path('accounts/register/',
+        RegistrationView.as_view(success_url='/accounts/login'),
+        name='django_registration_register'),
     # path('accounts/', include('django_registration.backends.one_step.urls')),
-    # url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
     # url(r'^logout/$', views.logout, {"next_page": '/'},name='logout')
 ]
