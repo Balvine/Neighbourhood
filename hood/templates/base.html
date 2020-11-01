@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -10,3 +9,40 @@
         {% else %}
         <title>Hood</title>
         {% endif %}
+
+        {% block styles %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% endblock%}
+    </head>
+    <body style="background-image: url('https://cdn.pixabay.com/photo/2015/06/08/15/26/neighborhood-802074_960_720.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+        {% include 'navbar.html' %}
+        {% block content %}
+        {% endblock %}
+        {% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('.sidenav').sidenav();
+                    var posts = []
+                    $.ajax({
+                        url: 'http://'+ window.location.host +'/api/companies',
+                        success: function (data) {
+                            $.each(data, function(index,value) {
+                                posts.push(value['name'])
+                            });
+                            $( "#search" ).autocomplete({
+                              source: posts
+                            });
+                            $('.modal').modal();
+                        }
+                    });
+                 });
+            </script>
+        {% endblock %}
+    </body>
+</html>

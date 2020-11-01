@@ -1,0 +1,31 @@
+{% include 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="col m12">
+        {% if companies %}
+        <table>
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Owner</th>
+              <th>Email</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for company in companies %}
+                <tr>
+                  <td>{{company.name}}</td>
+                  <td>{{company.description}}</td>
+                  <td>{{company.user}}</td>
+                  <td>{{company.email}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <h1 class="center-align">{{message}} </h1>
+      {% endif %}
+    </div>
+{% endblock %}
