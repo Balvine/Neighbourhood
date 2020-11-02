@@ -1,4 +1,4 @@
-"""neighbourhood URL Configuration
+"""hoodapp URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -13,14 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
+
 from django.contrib import admin
-from django.contrib.auth import views 
+from django.conf.urls import url, include
+# from django_registration.backends.one_step.views import RegistrationView
+from django.contrib.auth import views
+from django.conf.urls import url
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'', include('neighbour.urls')),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^logout/$', views.logout, {"next_page": '/'}),
-    url(r'^tinymce/', include('tinymce.urls')),
+     url(r'^admin/', admin.site.urls),
+    url(r'', include('hood.urls')),
+     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^logout/$', views.logout, {"next_page": '/'},name='logout')
 ]
