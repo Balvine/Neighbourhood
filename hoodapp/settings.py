@@ -38,8 +38,7 @@ SECRET_KEY =')u5f3ol8g)houc8c-kh3gxtk+^pj2+_r^v&w(%^z8(f#g08uj^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # Application definition
 
