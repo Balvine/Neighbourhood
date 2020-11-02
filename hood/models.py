@@ -76,24 +76,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-class Comment(models.Model):
-    post = models.ForeignKey(Post,on_delete = models.CASCADE,null=True)
-    comment = models.TextField()
-    user = models.ForeignKey(User,on_delete = models.CASCADE)
-    pub_date = models.DateTimeField(auto_now_add=True,null=True)
-
-    def __str__(self):
-        return self.comment
-
-class Location(models.Model):
-    name = models.CharField(max_length = 40)
-
-    def __str__(self):
-        return self.name
-
-class Category(models.Model):
-    name = models.CharField(max_length = 40)
-
-    def __str__(self):
-        return self.name
