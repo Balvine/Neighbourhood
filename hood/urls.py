@@ -1,12 +1,16 @@
-from django.urls import path, re_path
+from django.conf import settings
+from django.conf.urls.static import static
+from django.conf.urls import url
 from . import views
 
+
+
 urlpatterns = [
-    path('',views.index,name = 'index'),
-    re_path('edit_profile/(?P<username>\w{0,50})',views.edit_profile,name = 'edit_profile'),
-    path('companies',views.companies,name = 'companies'),
-    re_path('post/(?P<id>\d+)',views.post,name='post'),
-    path('search/',views.search,name='search'),
-    path('api/companies/',views.CompanyList.as_view())
+    url('^$', views.index, name='index'),
+    url(r'^profile/edit/$', views.edit_profile, name='edit_profile'),
+    url(r'^companies/$',views.companies,name = 'companies'),
+    url(r'^post/?P<id>(\d)+$',views.post,name='post'),
+    url(r'search/',views.search,name='search'),
+    url(r'^api/companies/$',views.CompanyList.as_view())
 
 ]
