@@ -6,7 +6,7 @@ from . import views
 
 
 urlpatterns = [
-    url('^$', views.index, name='index'),
+    url(r'^$', views.index, name='index'),
     url(r'^profile/edit/$', views.edit_profile, name='edit_profile'),
     url(r'^companies/$',views.companies,name = 'companies'),
     url(r'^post/?P<id>(\d)+$',views.post,name='post'),
