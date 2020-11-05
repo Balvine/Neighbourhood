@@ -13,10 +13,10 @@ from .email import send_a_email
 @login_required
 def index(request):
     current_user = request.user
-    try:
-        profile = UserProfile.objects.get(user = current_user)
-    except:
-        return redirect('edit_profile',username = current_user.username)
+    # try:
+    #     profile = UserProfile.objects.get(user = current_user)
+    # except:
+    #     return redirect('edit_profile',username = current_user.username)
 
     try:
         posts = Post.objects.filter(neighborhood = profile.neighborhood)
@@ -40,7 +40,7 @@ def index(request):
         return redirect('index')
     else:
         form = PostForm()
-    return render(request,'index.html',{"posts":posts,"profile":profile,"form":form})
+    return render(request,'index.html',{"posts":posts,"form":form})
 
 @login_required
 def edit_profile(request,username):

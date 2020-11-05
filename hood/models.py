@@ -29,7 +29,6 @@ class Neighborhood(models.Model):
         self.occupants += 1
         self.save()
 
-
 class UserProfile(models.Model):
     user = models.ForeignKey(User,on_delete = models.CASCADE,related_name = 'user_profile')
     first_name = models.CharField(max_length = 50,null=True)
