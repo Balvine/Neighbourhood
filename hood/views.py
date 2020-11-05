@@ -72,7 +72,7 @@ def edit_profile(request,username):
 @login_required
 def companies(request):
     current_user = request.user
-    neighborhood = UserProfile.objects.get(user = current_user).neighborhood
+    # neighborhood = UserProfile.objects.get(user = current_user).neighborhood
     if request.method == 'POST':
         form = CompanyForm(request.POST)
         if form.is_valid():
